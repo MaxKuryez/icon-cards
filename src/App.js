@@ -1,8 +1,8 @@
-import IconsSlide from "./components/iconsSlide/IconsSlide";
+import DraggableList from "./components/draggableList/DraggableList";
 
 function App() {
   return (
-    <IconsSlide />
+    <DraggableList />
   );
 }
 
