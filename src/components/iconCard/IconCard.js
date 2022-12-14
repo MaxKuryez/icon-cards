@@ -1,7 +1,7 @@
-import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import { IconContainer, CardContainer } from "./iconCard.styled";
 import IconSelector from "../iconSelector/IconSelector";
+import { FormGroup } from '@mui/material';
 
 const IconCard = () => {
   return(
@@ -9,10 +9,10 @@ const IconCard = () => {
       <IconContainer>
         <IconSelector />
       </IconContainer>
-      <FormControl>
-        <Input placeholder="Input here"/>
-        <Input placeholder="Input here"/>
-      </FormControl>
+      <FormGroup>
+        <Input id="top" placeholder="Input here"/>
+        <Input id="bottom" placeholder="Input here"/>
+      </FormGroup>
     </CardContainer>
   );
 };

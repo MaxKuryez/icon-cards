@@ -1,6 +1,7 @@
 import { useState } from "react";
-import IconCard from "../iconCard/IconCard";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import IconCard from "../iconCard/IconCard";
+import useExport from "../../hooks/useExport/useExport";
 import { styled } from '@mui/system';
 
 // fake data generator
@@ -33,6 +34,7 @@ export const DragContainer = styled("div")({
 
 const DraggableList = () => {
   const [items, setItems] = useState(getItems(3));
+  const { exportToPdf, exportToHTML } = useExport();
 
   const onDragEnd = (result) => {
     if (!result.destination) {
@@ -47,11 +49,18 @@ const DraggableList = () => {
     setItems(newItems);
   }
 
+  const exportHandler = () => {
+    exportToPdf("export-list");
+    exportToHTML("export-list");
+    console.log("HERE");
+  };
+
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
     return (
-      <div style={{ height: 200 }}>
-        <DragDropContext onDragEnd={onDragEnd}>
+      <div style={{ height: 200 }} id="export-list">
+        <button onClick={exportHandler} className="export-ignore">export</button>
+        <DragDropContext onDragEnd={onDragEnd} >
           <Droppable droppableId="droppable" direction="horizontal">
             {(provided, snapshot) => (
               <div
