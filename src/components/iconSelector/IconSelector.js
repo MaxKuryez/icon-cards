@@ -38,8 +38,8 @@ const IconSelector = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-          {iconsList.map((Icon) => {
-            return <MenuItem onClick={() => handleClose(Icon)} style={{padding: "5px 45px 5px 45px"}}><Icon /></MenuItem>
+          {iconsList.map((Icon, index) => {
+            return <MenuItem onClick={() => handleClose(Icon)} style={{padding: "5px 45px 5px 45px"}} key={index}><Icon /></MenuItem>
           })}
       </Menu>
     </div>

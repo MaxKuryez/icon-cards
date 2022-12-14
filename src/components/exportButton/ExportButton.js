@@ -2,8 +2,7 @@ import { useState } from "react";
 import useExport from "../../hooks/useExport/useExport";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import GetAppIcon from '@mui/icons-material/GetApp';
-import { ButtonStyled } from "./ExportButton.styled";
+import { ButtonStyled, GetAppIconStyled } from "./ExportButton.styled";
 
 const ExportButton = () => {
   const { exportToPdf, exportToHTML } = useExport();
@@ -36,7 +35,7 @@ const ExportButton = () => {
         aria-expanded={parent ? "true" : undefined}
         onClick={handleClick}
       >
-        <GetAppIcon />
+        <GetAppIconStyled />
       </ButtonStyled>
       <Menu
         id="basic-menu"

@@ -1,7 +1,7 @@
-import Input from '@mui/material/Input';
 import { IconContainer, CardContainer } from "./iconCard.styled";
 import IconSelector from "../iconSelector/IconSelector";
 import { FormGroup } from '@mui/material';
+import EditText from '../editText/EditText';
 
 const IconCard = () => {
   return(
@@ -10,8 +10,8 @@ const IconCard = () => {
         <IconSelector />
       </IconContainer>
       <FormGroup>
-        <Input id="top" placeholder="Input here"/>
-        <Input id="bottom" placeholder="Input here"/>
+        <EditText />
+        <EditText />
       </FormGroup>
     </CardContainer>
   );

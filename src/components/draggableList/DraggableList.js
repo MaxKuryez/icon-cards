@@ -4,6 +4,7 @@ import IconCard from "../iconCard/IconCard";
 import ExportButton from "../exportButton/ExportButton";
 import { slideItems } from "../../mockData/slideList";
 import { reorder } from "./utils";
+import EditText from "../editText/EditText";
 import { ListContainer, DragContainer } from "./draggableList.styled";
 
 const DraggableList = () => {
@@ -26,6 +27,7 @@ const DraggableList = () => {
       <div id="export-list">
         <ExportButton />
         <DragDropContext onDragEnd={onDragEnd} >
+        <EditText big/>
           <Droppable droppableId="droppable" direction="horizontal">
             {(provided) => (
               <ListContainer
