@@ -1,25 +1,34 @@
 import { useState } from "react";
+import useExport from "../../hooks/useExport/useExport";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { iconsList } from "../../mockData/iconsList";
+import GetAppIcon from '@mui/icons-material/GetApp';
 
-const IconSelector = () => {
+const ExportButton = () => {
+  const { exportToPdf, exportToHTML } = useExport();
   const [parent, setParent] = useState(null);
-  const [currentIcon, setCurrentIcon] = useState(iconsList[0]);
-  const IconComponent = currentIcon;
 
   const handleClick = (event) => {
     setParent(event.currentTarget);
   };
 
-  const handleClose = (icon) => {
+  const handleClose = () => {
     setParent(null);
-    setCurrentIcon(icon);
+  };
+
+  const handleClickPdf = () => {
+    exportToPdf("export-list");
+    setParent(null);
+  };
+
+  const handleClickHTML = () => {
+    exportToHTML("export-list");
+    setParent(null);
   };
 
   return (
-    <div>
+    <div className="export-ignore">
       <Button
         id="basic-button"
         aria-controls={parent ? "basic-menu" : undefined}
@@ -27,23 +36,22 @@ const IconSelector = () => {
         aria-expanded={parent ? "true" : undefined}
         onClick={handleClick}
       >
-        <IconComponent />
+        <GetAppIcon />
       </Button>
       <Menu
         id="basic-menu"
         anchorEl={parent}
         open={parent || false}
-        onClose={() => handleClose(currentIcon)}
+        onClose={handleClose}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
       >
-        {iconsList.map((Icon) => {
-          return <MenuItem onClick={() => handleClose(Icon)}><Icon /></MenuItem>
-        })}
+        <MenuItem onClick={handleClickPdf}>Export as PDF</MenuItem>
+        <MenuItem onClick={handleClickHTML}>Export as HTML</MenuItem>
       </Menu>
-    </div>
+  </div>
   );
-}
+};
 
-export default IconSelector;
+export default ExportButton;

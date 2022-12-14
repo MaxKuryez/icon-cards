@@ -16,6 +16,6 @@ export const downloadHTML = (exportID) => {
   
   a.href = "data:attachment/text," + encodeURI(printingElement.outerHTML);
   a.target = "_blank";
-  a.download = "cardsdd.txt";
+  a.download = "cards.html";
   a.click();
 };
