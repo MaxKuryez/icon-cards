@@ -4,19 +4,7 @@ import IconCard from "../iconCard/IconCard";
 import ExportButton from "../exportButton/ExportButton";
 import { slideItems } from "../../mockData/slideList";
 import { reorder } from "./utils";
-import { styled } from '@mui/system';
-
-const getListStyle ={
-  margin: "80px auto 0 auto",
-  display: "flex",
-  width: "80%",
-  textAlign: "center",
-};
-
-export const DragContainer = styled("div")({
-  width: "80%"
-  //backgroundColor: "red",
-});
+import { ListContainer, DragContainer } from "./draggableList.styled";
 
 const DraggableList = () => {
   const [items, setItems] = useState(slideItems);
@@ -35,14 +23,13 @@ const DraggableList = () => {
   }
 
     return (
-      <div style={{ height: 200 }} id="export-list">
+      <div id="export-list">
         <ExportButton />
         <DragDropContext onDragEnd={onDragEnd} >
           <Droppable droppableId="droppable" direction="horizontal">
             {(provided) => (
-              <div
+              <ListContainer
                 ref={provided.innerRef}
-                style={getListStyle}
                 {...provided.droppableProps}
               >
                 {items.map((item, index) => (
@@ -59,7 +46,7 @@ const DraggableList = () => {
                   </Draggable>
                 ))}
                 {provided.placeholder}
-              </div>
+              </ListContainer>
             )}
           </Droppable>
         </DragDropContext>

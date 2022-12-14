@@ -1,9 +1,9 @@
 import { useState } from "react";
 import useExport from "../../hooks/useExport/useExport";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import GetAppIcon from '@mui/icons-material/GetApp';
+import { ButtonStyled } from "./ExportButton.styled";
 
 const ExportButton = () => {
   const { exportToPdf, exportToHTML } = useExport();
@@ -29,7 +29,7 @@ const ExportButton = () => {
 
   return (
     <div className="export-ignore">
-      <Button
+      <ButtonStyled
         id="basic-button"
         aria-controls={parent ? "basic-menu" : undefined}
         aria-haspopup="true"
@@ -37,7 +37,7 @@ const ExportButton = () => {
         onClick={handleClick}
       >
         <GetAppIcon />
-      </Button>
+      </ButtonStyled>
       <Menu
         id="basic-menu"
         anchorEl={parent}
@@ -47,7 +47,7 @@ const ExportButton = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClickPdf}>Export as PDF</MenuItem>
+        <MenuItem onClick={handleClickPdf} >Export as PDF</MenuItem>
         <MenuItem onClick={handleClickHTML}>Export as HTML</MenuItem>
       </Menu>
   </div>

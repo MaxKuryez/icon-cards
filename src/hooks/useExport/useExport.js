@@ -11,12 +11,12 @@ const useExport = () => {
         return true;
       },
     }).then((dataUrl) => downloadImage(dataUrl, exportID));
-
   };
 
   const exportToHTML = (exportID) => {
     downloadHTML(exportID);
   };
+
   return { exportToPdf, exportToHTML };
 };
 
