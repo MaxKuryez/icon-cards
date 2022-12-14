@@ -1,19 +1,18 @@
-import { IconContainer, CardContainer } from "./iconCard.styled";
 import IconSelector from "../iconSelector/IconSelector";
 import { FormGroup } from '@mui/material';
 import EditText from '../editText/EditText';
 
 const IconCard = () => {
   return(
-    <CardContainer>
-      <IconContainer>
+    <div>
+      <div>
         <IconSelector />
-      </IconContainer>
+      </div>
       <FormGroup>
         <EditText />
         <EditText />
       </FormGroup>
-    </CardContainer>
+    </div>
   );
 };
 
