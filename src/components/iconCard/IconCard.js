@@ -1,13 +1,13 @@
-import AddLocationIcon from "@mui/icons-material/AddLocation";
 import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import { IconContainer, CardContainer } from "./iconCard.styled";
+import IconSelector from "../iconSelector/IconSelector";
 
 const IconCard = () => {
   return(
     <CardContainer>
       <IconContainer>
-        <AddLocationIcon />
+        <IconSelector />
       </IconContainer>
       <FormControl>
         <Input placeholder="Input here"/>
